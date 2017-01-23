@@ -18,60 +18,12 @@
   ],
   "todo": [
     {
+      "id": 1,
+      "value": "Mutluluk Al"
+    },
+    {
       "id": 2,
-      "value": "Huzur Al0"
-    },
-    {
-      "id": 3,
-      "value": " hfghvnhbvhnb"
+      "value": "Huzur Al"
     }
-  ],
-  "data": [
-    {
-      "id": 4,
-      "name": "Onur",
-      "surname": "Arslan"
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "name": "dvxcv ",
-      "surname": "vc v ",
-      "email": "c ",
-      "password": "bfcgbv",
-      "birthdate": 1484128236811,
-      "job": "sa",
-      "gender": "female",
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
-      "name": "betul",
-      "surname": "gdfcgb",
-      "email": "dfgcgv",
-      "password": "fcv",
-      "birthdate": 1484904392236,
-      "job": "sd",
-      "gender": "female",
-      "id": 13
-    }
-  ],
-  "files": [
-    {}
   ]
 }

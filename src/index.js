@@ -5,10 +5,7 @@ import { render } from "react-dom";
 import RApplication from "robe-react-ui/lib/Application";
 import { ShallowComponent, Application } from "robe-react-commons";
 import { Grid } from "react-bootstrap";
-//import Todo from "./Todo";
-import DataGridSample from "./DataGridSample";
-import ComponentsInput from "./ComponentsInput";
-import Toast from "./Toast";
+import Todo from "./Todo";
 
 const app = document.getElementById("app");
 
@@ -17,17 +14,11 @@ render(
     (
         <Grid>
             <RApplication language={tr}>
-            
                 <h1>Todo Application</h1>
-                 <DataGridSample />
-                
-                <ComponentsInput/>
+                <Todo />
             </RApplication>
         </Grid>
     ),
     app
 );
 
-/*  <Todo />
-  <DataGridSample />
-  */

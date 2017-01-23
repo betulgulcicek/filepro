@@ -1,7 +1,6 @@
 import React from "react";
 import TextInput from "robe-react-ui/lib/inputs/TextInput";
 import { ShallowComponent } from "robe-react-commons";
-import Button from "robe-react-ui/lib/buttons/Button";
 export default class TodoItem extends ShallowComponent {
 
     static propTypes = {
@@ -19,7 +18,6 @@ export default class TodoItem extends ShallowComponent {
             value: this.props.item.value
         }
     }
-    
     render() {
         let itemValue;
 
@@ -29,14 +27,11 @@ export default class TodoItem extends ShallowComponent {
                 onKeyPress={this.onKeyPress}
                 onChange={this.onChange} />);
         } else {
-            itemValue = <span onClick={this.onClick}>{this.props.item.value}</span>
+            itemValue = <span>{this.props.item.value}</span>
         }
         return (
-            <li>
+            <li onClick={this.onClick}>
                 {itemValue}
-                <Button style={{float: "right"}} bsStyle="danger" onClick={this.onDeleteClick}>Delete</Button>
-                <Button style={{float: "right"}} bsStyle="warning" onClick={this.onEditClick}>Edit</Button>
-                <div style={{clear: "both"}} />
             </li>
         )
     }
@@ -57,17 +52,6 @@ export default class TodoItem extends ShallowComponent {
     onChange(e) {
         let value = e.target.value;
         this.setState({ value });
-    }
-
-    onDeleteClick() {
-        console.log(this.props.item);
-        this.props.onItemDelete(this.props.item.id);
-    }
-
-
-    onEditClick() {
-        this.setState({ edit: true });
-        this.setState(state);
     }
 
 }
