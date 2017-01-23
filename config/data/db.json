@@ -1,29 +1,32 @@
 {
-  "users": [
+  "files": [
     {
       "id": 1,
-      "name": "Seray",
-      "surname": "Uzgur"
+      "name": "AA",
+      "fileType": "doc",
+      "size": "100MB"
     },
     {
       "id": 2,
-      "name": "Mete",
-      "surname": "Işık"
+      "name": "AA",
+      "fileType": "pdf",
+      "size": "100MB"
     },
     {
-      "name": "Onur",
-      "surname": "Arslan",
-      "id": 3
+      "id": 3,
+      "name": "AA",
+      "fileType": "exe",
+      "size": "100MB"
     }
   ],
-  "todo": [
+  "fileType": [
     {
       "id": 1,
-      "value": "Mutluluk Al"
+      "name": "A"
     },
     {
       "id": 2,
-      "value": "Huzur Al"
+      "name": "B"
     }
   ]
 }

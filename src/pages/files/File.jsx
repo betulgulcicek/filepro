@@ -2,6 +2,7 @@ import React from "react";
 import { ShallowComponent } from "robe-react-commons";
 import FileUploadInput from "robe-react-ui/lib/inputs/upload/FileUploadInput";
 import { Button } from "react-bootstrap";
+import ModalDataForm from "robe-react-ui/lib/form/ModalDataForm";
 
 const filesUrl = "http://localhost:3000/files";
 
@@ -24,6 +25,10 @@ export default class FileUploadInputSample extends ShallowComponent {
     constructor(props) {
         super(props);
         this.__onSubmitNew = this.onSubmit.bind(this, "fileUpload");
+
+        this.state = {
+            showModal: false
+        };
     }
     render() {
         return (
@@ -42,6 +47,7 @@ export default class FileUploadInputSample extends ShallowComponent {
                 <Button onClick={this.__onSubmitNew}>Send</Button>
 
                 <FileType/>
+                <Button bsStyle="warning" onClick={this.edit}>Edit</Button>
             </div>
         );
     }
@@ -58,4 +64,14 @@ export default class FileUploadInputSample extends ShallowComponent {
     onChange(e) {
         console.log(e);
     }
+    edit(){
+        let empty = {};
+       // this.__showModal(empty);
+       this.setState({ showModal: true, item: newItem });
+    }
+/*
+    
+    __showModal(newItem: Object) {
+        this.setState({ showModal: true, item: newItem });
+    }*/
 }
