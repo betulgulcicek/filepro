@@ -1,26 +1,7 @@
 import React from "react";
-import { ShallowComponent } from "robe-react-commons";
-//import FileUploadInput from "robe-react-ui/lib/inputs/upload/FileUploadInput";
+import { ShallowComponent, Store, RemoteEndPoint } from "robe-react-commons";
 import { Button } from "react-bootstrap";
 import SelectInput from "robe-react-ui/lib/inputs/SelectInput";
-
-
-const filesUrl = "http://localhost:3000/fileType";
-
-
-
-let props = {
-    url: filesUrl,
-    upload: {
-        type: "PUT"
-    },
-    info: {
-        type: "POST"
-    },
-    delete: {
-        type: "DELETE"
-    }
-};
 
 
 const langs = [
@@ -37,13 +18,30 @@ const langs = [
         value: "exe"
     }
 ];
-export default class FileUploadInput extends ShallowComponent {
+export default class FileType extends ShallowComponent {
+
+    store;
 
     constructor(props: Object) {
         super(props);
+       
+    
+
+    this.store = new Store({
+            endPoint: new RemoteEndPoint({
+                url: "http://127.0.0.1:3000/fileType",
+                idField: "id"
+            }),
+            idField: "id",
+            autoLoad: true
+        });
+
         this.state = {
-        };
+             store : this.store,
+            items: []
+        }
     }
+
 
     render(): Object {
         return (
