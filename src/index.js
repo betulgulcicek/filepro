@@ -6,6 +6,8 @@ import RApplication from "robe-react-ui/lib/Application";
 import { ShallowComponent, Application } from "robe-react-commons";
 import { Grid } from "react-bootstrap";
 import Todo from "./Todo";
+import File from "./pages/files/File";
+import FileType from "./pages/files/FileType";
 
 const app = document.getElementById("app");
 
@@ -14,8 +16,9 @@ render(
     (
         <Grid>
             <RApplication language={tr}>
-                <h1>Todo Application</h1>
-                <Todo />
+                <h1>File Application</h1>
+                <File />
+                <FileType />
             </RApplication>
         </Grid>
     ),
