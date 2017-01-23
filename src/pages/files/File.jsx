@@ -23,7 +23,7 @@ export default class File extends ShallowComponent {
 
         this.state = {
             store : this.store,
-            items: []
+            items: []   
         }
     }
 
