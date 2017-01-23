@@ -40,6 +40,8 @@ export default class FileUploadInputSample extends ShallowComponent {
                 />
                 <br />
                 <Button onClick={this.__onSubmitNew}>Send</Button>
+
+                <FileType/>
             </div>
         );
     }
