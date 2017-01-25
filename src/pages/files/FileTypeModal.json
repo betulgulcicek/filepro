@@ -1,0 +1,48 @@
+{
+  "name": "FileTypeModal",
+  "fields": [
+    {
+      "label": "Id",
+      "type": "string",
+      "name": "oid",
+      "tooltip": "Id",
+      "visible": false
+    },
+    {
+      "label": "File Name",
+      "name": "file name",
+      "type": "string",
+      "validations": {
+        "required": true
+      }
+    },
+    {
+      "label": "SelectInput",
+      "name": "il",
+      "type": "type",
+      "validations": {
+        "required": true
+      },
+      "items": [
+        {
+          "key": "doc",
+          "text": "doc"
+        },
+        {
+          "key": "pdf",
+          "text": "pdf"
+        },
+        {
+          "key": "exe",
+          "text": "exe"
+        }
+      ]
+    },
+    {
+      "label": "Size",
+      "name": "Size",
+      "type": "number",
+      "items": []
+    }
+  ]
+}
