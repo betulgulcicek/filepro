@@ -6,7 +6,7 @@ import DataGrid from "robe-react-ui/lib/datagrid/DataGrid";
 import AjaxRequest from "robe-react-commons/lib/connections/AjaxRequest";
 import FileTypeModal from "./FileTypeModal.json";
 import Assertions from "robe-react-commons/lib/utils/Assertions";
-//import SHA256 from "crypto-js/sha256";
+
 
 export default class FileType extends ShallowComponent {
 
@@ -70,8 +70,16 @@ export default class FileType extends ShallowComponent {
                     onCancel={this.__onCancel}
                     defaultValues={this.state.item}
                     />
+                
             </div>
         );
+    }
+
+     __handleChange(e:Object) {
+        let state = {};
+        let value = e.target.parsedValue !== undefined ? e.target.parsedValue : e.target.value;
+        state[e.target.name] = value;
+        this.setState(state);
     }
 
     __add() {
@@ -93,7 +101,6 @@ export default class FileType extends ShallowComponent {
 
     __onSave(newData, callback) {
         let id = newData[File.idField];
-        //newData.password = SHA256(newData.password).toString();
         if (Assertions.isNotEmpty(id)) {
             this.state.store.update(newData);
         } else {
@@ -105,8 +112,7 @@ export default class FileType extends ShallowComponent {
                 showModal: true
             });
         }
-
-        // this.refs[DataGridSample.tableRef].__readData();
+         this.refs[DataGridSample.tableRef].__readData();
     }
 
     __remove() {
@@ -119,7 +125,7 @@ export default class FileType extends ShallowComponent {
 
     componentDidMount() {
         let readRequest = new AjaxRequest({
-            url: "files",
+            url: "fileType",
             type: "GET"
         });
         readRequest.call(undefined, undefined, (response: Object) => {
@@ -136,10 +142,5 @@ export default class FileType extends ShallowComponent {
             this.forceUpdate();
         });
     }
-/*
-    toggle = () => {
-        this.setState({
-            show: !this.state.show
-        });
-    }*/
+   
 }

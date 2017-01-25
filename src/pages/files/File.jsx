@@ -54,17 +54,12 @@ export default class File extends ShallowComponent {
                         />
                     <Button onClick={this.toggle}>Add</Button>   */}
 
-                  
                 </div>
-           
         );
-
     }
-
 
     renderItems() {
         let items = [];
-        console.log("render items !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
      //  for (let i = 0; i < this.state.items.length; i++) {
             items.push(<FileType item={this.state.items[0]} onItemChange={this.onItemChange} />);
      //   }

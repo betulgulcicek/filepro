@@ -6,6 +6,7 @@ import RApplication from "robe-react-ui/lib/Application";
 import { ShallowComponent, Application } from "robe-react-commons";
 import { Grid } from "react-bootstrap";
 import File from "./pages/files/File";
+import BootstrapApp from "./BootstrapApp";
 
 const app = document.getElementById("app");
 
@@ -15,7 +16,8 @@ render(
         <Grid>
             <RApplication language={tr}>
                 <h1>File Application</h1>
-                <File />
+                <BootstrapApp />
+                {/*<File />*/}
             </RApplication>
         </Grid>
     ),

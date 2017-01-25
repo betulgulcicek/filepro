@@ -28,30 +28,27 @@
       "sort": "",
       "filter": true
     },
-    
-
- {
-      "label": "Select Input",
-      "type": "type",
+    {
+      "label": "Select ",
+      "type": "select",
       "name": "selectInput",
-      "tooltip": "SelectInput",
-      "validations": {
-        "required": true
-      },
-      "items": [
-        {
-          "key": "doc",
-          "text": "doc"
-        },
-        {
-          "key": "pdf",
-          "text": "pdf"
-        },
-        {
-          "key": "exe",
-          "text": "exe"
-        }
-      ]
+      "tooltip": "Select Input",
+      "visible": true,
+
+        "items": [
+          {
+            "key": 1,
+            "text": "doc"
+          },
+          {
+            "key": 2,
+            "text": "pdf"
+          },
+          {
+            "key": 3,
+            "text": "exe"
+          }
+        ]
     },
     {
       "label": "Size",
