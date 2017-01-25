@@ -19,23 +19,56 @@
   "fileType": [
     {
       "id": 1,
-      "name": ".pdf"
+      "name": "A"
     },
     {
       "id": 2,
-<<<<<<< HEAD
       "name": "B"
     },
-     {
+    {
       "id": 3,
       "name": "C"
     },
-     {
+    {
       "id": 4,
       "name": "D"
-=======
-      "name": ".docx"
->>>>>>> 2593752f1ccff8a40139893d24a17a82555b6666
+    },
+    {
+      "id": 5,
+      "name": "E"
+    },
+    {
+      "id": 6,
+      "name": "F"
+    },
+    {
+      "id": 7,
+      "name": "G"
+    },
+    {
+      "id": 8,
+      "name": "H"
+    },
+    {
+      "id": 9,
+      "name": "I"
+    },
+    {
+      "name": "dfgvcv",
+      "id": 10
+    },
+    {
+      "oid": "39080598-2582-d515-680d-312a8da82735",
+      "name": "dfgvcvewdsss",
+      "id": 11
+    },
+    {
+      "name": "Isfd",
+      "id": 12
+    },
+    {
+      "name": "H",
+      "id": 13
     }
   ]
 }

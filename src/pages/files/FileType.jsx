@@ -5,7 +5,7 @@ import ModalDataForm from "robe-react-ui/lib/form/ModalDataForm";
 import DataGrid from "robe-react-ui/lib/datagrid/DataGrid";
 import AjaxRequest from "robe-react-commons/lib/connections/AjaxRequest";
 import FileTypeModal from "./FileTypeModal.json";
-//import Assertions from "robe-react-commons/lib/utils/Assertions";
+import Assertions from "robe-react-commons/lib/utils/Assertions";
 //import SHA256 from "crypto-js/sha256";
 
 export default class FileType extends ShallowComponent {
@@ -41,8 +41,6 @@ export default class FileType extends ShallowComponent {
     }
 
 
-
-
     render(): Object {
         return (
             <div>
@@ -57,7 +55,7 @@ export default class FileType extends ShallowComponent {
                     onDeleteClick={this.__remove}
                     pagination={{ emptyText: "No data.", pageSize: 20 }}
                     modalConfirm={{ header: "Please do not delete me." }}
-                    pageSizeButtons={["10", "20", "100"]}
+                    pageSizeButtons={["3", "7", "100"]}
                     refreshable={true}
                     pageable={true}
                     editable={true}
@@ -68,7 +66,7 @@ export default class FileType extends ShallowComponent {
                     show={this.state.showModal}
                     propsOfFields={this.state.propsOfFields}
                     fields={this.state.fields}
-                //    onSubmit={this.__onSave}
+                    onSubmit={this.__onSave}
                     onCancel={this.__onCancel}
                     defaultValues={this.state.item}
                     />
@@ -94,25 +92,19 @@ export default class FileType extends ShallowComponent {
     }
 
     __onSave(newData, callback) {
-        let id = newData[User.idField];
+        let id = newData[File.idField];
         //newData.password = SHA256(newData.password).toString();
-        /*try {
-            if (Assertions.isNotEmpty(id)) {
-                this.state.store.update(newData);
-            } else {
-                this.state.store.create(newData);
-            }
-            if (newData) {
-                callback(true);
-                this.setState({
-                    showModal: true
-                });
-            }
+        if (Assertions.isNotEmpty(id)) {
+            this.state.store.update(newData);
+        } else {
+            this.state.store.create(newData);
         }
-        catch(isNotUndefined)
-        {
-            console.log("isNotUndefined");
-        }*/
+        if (newData) {
+            callback(true);
+            this.setState({
+                showModal: true
+            });
+        }
 
         // this.refs[DataGridSample.tableRef].__readData();
     }
@@ -144,10 +136,10 @@ export default class FileType extends ShallowComponent {
             this.forceUpdate();
         });
     }
-
+/*
     toggle = () => {
         this.setState({
             show: !this.state.show
         });
-    }
+    }*/
 }
