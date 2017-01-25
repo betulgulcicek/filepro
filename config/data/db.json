@@ -3,29 +3,27 @@
     {
       "id": 1,
       "name": "AA",
-      "fileType": "doc",
-      "size": "100MB"
+      "size": "1024"
     },
     {
       "id": 2,
-      "name": "AA",
-      "fileType": "pdf",
-      "size": "100MB"
+      "name": "BB",
+      "size": "1024"
     },
     {
       "id": 3,
-      "name": "AA",
-      "fileType": "exe",
-      "size": "100MB"
+      "name": "CC",
+      "size": "1024"
     }
   ],
   "fileType": [
     {
       "id": 1,
-      "name": "A"
+      "name": ".pdf"
     },
     {
       "id": 2,
+<<<<<<< HEAD
       "name": "B"
     },
      {
@@ -35,6 +33,9 @@
      {
       "id": 4,
       "name": "D"
+=======
+      "name": ".docx"
+>>>>>>> 2593752f1ccff8a40139893d24a17a82555b6666
     }
   ]
 }

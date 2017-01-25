@@ -8,7 +8,7 @@ export default class TodoItem extends ShallowComponent {
         item: React.PropTypes.object
     }
     static defaultProps = {
-        item: {}
+        item: { }
     }
 
     constructor(props) {
