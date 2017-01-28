@@ -1,57 +1,24 @@
 {
-  "files": [
-    {
-      "id": 1,
-      "name": "AA",
-      "size": "1024"
-    },
-    {
-      "id": 2,
-      "name": "BB",
-      "size": "1024"
-    },
-    {
-      "id": 3,
-      "name": "CC",
-      "size": "1024"
-    }
-  ],
   "fileType": [
     {
-      "id": 1,
-      "name": "A"
+      "name": "Select denme",
+      "selectInput": "txt",
+      "Size": 123,
+      "id": 1
+    }
+  ],
+  "filemime": [
+    {
+      "name": "Doc",
+      "value": "doc"
     },
     {
-      "id": 2,
-      "name": "B"
+      "name": "Text",
+      "value": "txt"
     },
     {
-      "id": 3,
-      "name": "C"
-    },
-    {
-      "id": 4,
-      "name": "D"
-    },
-    {
-      "id": 5,
-      "name": "E"
-    },
-    {
-      "id": 6,
-      "name": "F"
-    },
-    {
-      "id": 7,
-      "name": "G"
-    },
-    {
-      "id": 8,
-      "name": "H"
-    },
-    {
-      "id": 9,
-      "name": "I"
+      "name": "Pdf",
+      "value": "pdf"
     }
   ]
 }

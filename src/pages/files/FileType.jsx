@@ -12,17 +12,20 @@ export default class FileType extends ShallowComponent {
 
     static idField = "id";
 
+     readRequest = new AjaxRequest({
+            url: "http://127.0.0.1:3000/filemime",
+            type: "GET"
+        });
+
     constructor(props: Object) {
         super(props);
-
-
 
         let store = new Store({
             endPoint: new RemoteEndPoint({
                 url: "http://127.0.0.1:3000/fileType",
 
             }),
-            idField: File.idField,
+            idField: FileType.idField,
             autoLoad: true
         });
 
@@ -33,7 +36,7 @@ export default class FileType extends ShallowComponent {
             showModal: false,
             item: {},
             propsOfFields: {
-                id: {
+                selectInput: {
                     items: []
                 }
             }
@@ -92,7 +95,18 @@ export default class FileType extends ShallowComponent {
         if (!selectedRows || !selectedRows[0]) {
             return;
         }
+        let select=selectedRows[0];
+       // if(!select[FileType.idField])
+       // select[FileType.idField]=this.__generateId();
         this.__showModal(selectedRows[0]);
+    }
+
+    __generateId(){
+        let text="123456789ABCDEFGHLKMJNVPQYUZ";
+        let id="";
+        for(let i=0;i<32;i++)
+        id+=text[Math.floor(Math.random()*25)]; 
+        return id;
     }
 
     __onCancel() {
@@ -100,8 +114,8 @@ export default class FileType extends ShallowComponent {
     }
 
     __onSave(newData, callback) {
-        let id = newData[File.idField];
-        if (Assertions.isNotEmpty(id)) {
+        let selectedRows = this.refs.table.getSelectedRows();
+        if (Assertions.isNotEmpty(newData[FileType.idField])) {
             this.state.store.update(newData);
         } else {
             this.state.store.create(newData);
@@ -112,11 +126,13 @@ export default class FileType extends ShallowComponent {
                 showModal: true
             });
         }
-         this.refs[DataGridSample.tableRef].__readData();
+         this.refs.table.__readData();
     }
 
     __remove() {
         let selectedRows = this.refs.table.getSelectedRows();
+        console.log(selectedRows);
+        this.state.store.delete(selectedRows[0]);
     }
 
     __showModal(newItem) {
@@ -124,23 +140,21 @@ export default class FileType extends ShallowComponent {
     }
 
     componentDidMount() {
-        let readRequest = new AjaxRequest({
-            url: "fileType",
-            type: "GET"
-        });
-        readRequest.call(undefined, undefined, (response: Object) => {
-            let state = {};
+
+        this.readRequest.call(undefined, undefined,function (response){
+         let state = {};
             state.propsOfFields = this.state.propsOfFields;
             for (let i = 0; i < response.length; i++) {
                 let res = response[i];
-                state.propsOfFields.id.items.push({
-                    value: res.id,
+                state.propsOfFields.selectInput.items.push({ //filetype
+                    value: res.value,
                     text: res.name
                 });
             }
             this.setState(state);
             this.forceUpdate();
-        });
+        }.bind(this));
     }
+
    
 }

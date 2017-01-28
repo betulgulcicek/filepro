@@ -1,54 +1,40 @@
 import React from "react";
 import { ShallowComponent, Store, RemoteEndPoint } from "robe-react-commons";
-import { Button, ButtonToolbar } from "react-bootstrap";
+import { Button, ButtonToolbar, ButtonGroup,
+     DropdownButton, MenuItem, Dropdown, 
+     Glyphicon, Toggle, Menu, FormControl, Modal  } from "react-bootstrap";
 import { Well } from "react-bootstrap";
+import ReactDOM from 'react-dom';
 
-const wellStyles = { maxWidth: 400, margin: '0 auto 10px' };
+/*
+const buttonsInstance = (
+    <ButtonToolbar>
+        <Button bsStyle="primary" bsSize="large" disabled>Primary button</Button>
+        <Button bsSize="large" disabled>Button</Button>
+    </ButtonToolbar>
+);
 
+*/
+//ReactDOM.render(buttonsInstance, document.getElementById('app'));
 
-export default class BootstrapApp extends ShallowComponent {
+const modalInstance = (
+  <div className="static-modal">
+    <Modal.Dialog>
+      <Modal.Header>
+        <Modal.Title>Modal title</Modal.Title>
+      </Modal.Header>
 
-    render() {
-        return (
-            <div>
-                <ButtonToolbar>
-                    <Button href="#">Link</Button>
-                    <Button>Button</Button>
-                </ButtonToolbar>
-                <div className="well" style={wellStyles}>
-                    <Button bsStyle="primary" bsSize="large" block>Block level button</Button>
-                    <Button bsSize="large" block>Block level button</Button>
-                </div>
-                <ButtonToolbar>
-                    {/* Standard button */}
-                    <Button>Default</Button>
+      <Modal.Body>
+        One fine body...
+      </Modal.Body>
 
-                    {/* Provides extra visual weight and identifies the primary action in a set of buttons */}
-                    <Button bsStyle="primary">Primary</Button>
+      <Modal.Footer>
+        <Button>Close</Button>
+        <Button bsStyle="primary">Save changes</Button>
+      </Modal.Footer>
 
-                    {/* Indicates a successful or positive action */}
-                    <Button bsStyle="success">Success</Button>
+    </Modal.Dialog>
+  </div>
+);
 
-                    {/* Contextual button for informational alert messages */}
-                    <Button bsStyle="info">Info</Button>
-
-                    {/* Indicates caution should be taken with this action */}
-                    <Button bsStyle="warning">Warning</Button>
-
-                    {/* Indicates a dangerous or potentially negative action */}
-                    <Button bsStyle="danger">Danger</Button>
-
-                    {/* Deemphasize a button by making it look like a link while maintaining button behavior */}
-                    <Button bsStyle="link">Link</Button>
-                </ButtonToolbar>
-            </div>
-        );
-    }
-
-    add() {
-        console.log("ADD");
-
-    }
-
-}
-
+ReactDOM.render(modalInstance, document.getElementById(''));

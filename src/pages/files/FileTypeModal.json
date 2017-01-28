@@ -4,7 +4,7 @@
     {
       "label": "Id",
       "type": "string",
-      "name": "oid",
+      "name": "id",
       "tooltip": "Id",
       "visible": false
     },
@@ -36,18 +36,6 @@
       "visible": true,
 
         "items": [
-          {
-            "key": 1,
-            "text": "doc"
-          },
-          {
-            "key": 2,
-            "text": "pdf"
-          },
-          {
-            "key": 3,
-            "text": "exe"
-          }
         ]
     },
     {
