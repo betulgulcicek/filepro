@@ -1,45 +1,34 @@
 import React from "react";
-import { ShallowComponent, Store, RemoteEndPoint, Arrays } from "robe-react-commons";
+import { ShallowComponent, Store, RemoteEndPoint } from "robe-react-commons";
 import { Button } from "react-bootstrap";
 import ModalDataForm from "robe-react-ui/lib/form/ModalDataForm";
 import DataGrid from "robe-react-ui/lib/datagrid/DataGrid";
-import AjaxRequest from "robe-react-commons/lib/connections/AjaxRequest";
 import FileTypeModal from "./FileTypeModal.json";
 import Assertions from "robe-react-commons/lib/utils/Assertions";
 
 
-export default class FileType extends ShallowComponent {
+export default class FileMime extends ShallowComponent {
 
     static idField = "id";
-
-    readRequest = new AjaxRequest({
-        url: "http://127.0.0.1:3000/filemime",
-        type: "GET"
-    });
 
     constructor(props: Object) {
         super(props);
 
         let store = new Store({
             endPoint: new RemoteEndPoint({
-                url: "http://127.0.0.1:3000/fileType",
+                url: "http://127.0.0.1:3000/filemime",
 
             }),
-            idField: FileType.idField,
+            idField: FileMime.idField,
             autoLoad: true
         });
 
 
         this.state = {
-            fields: FileTypeModal.fields,
+            fieldsmime: FileTypeModal.fieldsmime,
             store: store,
             showModal: false,
-            item: {},
-            propsOfFields: {
-                selectInput: {
-                    items: []
-                }
-            }
+            item: {}
         }
     }
 
@@ -48,9 +37,8 @@ export default class FileType extends ShallowComponent {
         return (
             <div>
                 <DataGrid
-                    fields={this.state.fields}
+                    fields={this.state.fieldsmime}
                     store={this.state.store}
-                    propsOfFields={this.state.propsOfFields}
                     ref={"table"}
                     toolbar={[{ name: "create", text: "Ekle" }, { name: "edit", text: "Düzenle" }, { name: "delete", text: "Sil" }]}
                     onNewClick={this.__add}
@@ -67,8 +55,7 @@ export default class FileType extends ShallowComponent {
                     ref="detailModal"
                     header="File Yönetimi"
                     show={this.state.showModal}
-                    propsOfFields={this.state.propsOfFields}
-                    fields={this.state.fields}
+                    fields={this.state.fieldsmime}
                     onSubmit={this.__onSave}
                     onCancel={this.__onCancel}
                     defaultValues={this.state.item}
@@ -98,23 +85,13 @@ export default class FileType extends ShallowComponent {
         let select = selectedRows[0];
         this.__showModal(selectedRows[0]);
     }
-    /*
-        __generateId() {
-            let text = "123456789ABCDEFGHLKMJNVPQYUZ";
-            let id = "";
-            for (let i = 0; i < 32; i++)
-                id += text[Math.floor(Math.random() * 25)];
-            return id;
-        }
-        */
-
     __onCancel() {
         this.setState({ showModal: false });
     }
 
     __onSave(newData, callback) {
         let selectedRows = this.refs.table.getSelectedRows();
-        if (Assertions.isNotEmpty(newData[FileType.idField])) {
+        if (Assertions.isNotEmpty(newData[FileMime.idField])) {
             this.state.store.update(newData);
         } else {
             this.state.store.create(newData);
@@ -135,42 +112,7 @@ export default class FileType extends ShallowComponent {
     }
 
     __showModal(newItem) {
-        this.readRequest.call(undefined, undefined, function (response) {
-            let state = { showModal: true, item: newItem };
-            state.propsOfFields = this.state.propsOfFields;
-            for (let i = 0; i < response.length; i++) {
-                let res = response[i];
-                if (Arrays.indexOfByKey(state.propsOfFields.selectInput.items, "value", res.value) === -1) {
-                    state.propsOfFields.selectInput.items.push({ //filetype
-                        value: res.value,
-                        text: res.name
-                    });
-                }
-            }
-            this.setState(state);
-            this.forceUpdate();
-        }.bind(this), function (res) {
-            this.setState({ showModal: true, item: newItem });
-        }.bind(this));
+        this.setState({ showModal: true, item: newItem });
     }
-
-    componentDidMount() {
-        this.readRequest.call(undefined, undefined, function (response) {
-            let state = {};
-            state.propsOfFields = this.state.propsOfFields;
-            for (let i = 0; i < response.length; i++) {
-                let res = response[i];
-                if (Arrays.indexOfByKey(state.propsOfFields.selectInput.items, "value", res.value) === -1) {
-                    state.propsOfFields.selectInput.items.push({ //filetype
-                        value: res.value,
-                        text: res.name
-                    });
-                }
-            }
-            this.setState(state);
-            this.forceUpdate();
-        }.bind(this));
-    }
-
 
 }

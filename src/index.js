@@ -1,24 +1,15 @@
 import tr from "robe-react-ui/lib/assets/tr_TR.json";
-console.log(tr);
 import React from "react";
 import { render } from "react-dom";
 import RApplication from "robe-react-ui/lib/Application";
 import { ShallowComponent, Application } from "robe-react-commons";
 import { Grid } from "react-bootstrap";
 import FileType from "./pages/files/FileType";
-//import BootstrapApp from "./BootstrapApp";
-//import RouterExample from "./routerEx/RouterExample";
-/*
-
-import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
-import About from "./routerEx/About";
-import Home from "./routerEx/Home";
-import Contact from "./routerEx/Contact";
-*/
+import FileMime from "./pages/files/FileMime";
 
 const app = document.getElementById("app");
 
-
+Application.loadI18n(tr);
 render(
     (
         <Grid>
@@ -26,6 +17,8 @@ render(
                 <h1>File Application</h1>
                
                 <FileType />
+
+                <FileMime/>
               
             </RApplication>
         </Grid>

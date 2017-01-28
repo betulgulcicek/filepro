@@ -1,24 +1,27 @@
 {
   "fileType": [
     {
-      "name": "Select denme",
+      "name": "belge",
       "selectInput": "txt",
-      "Size": 123,
-      "id": 1
+      "Size": 1024,
+      "id": 2
     }
   ],
   "filemime": [
     {
+      "id": 1,
       "name": "Doc",
       "value": "doc"
     },
     {
+      "id": 2,
       "name": "Text",
       "value": "txt"
     },
     {
+      "id": 3,
       "name": "Pdf",
       "value": "pdf"
     }
   ]
-}
+  }

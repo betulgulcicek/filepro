@@ -34,15 +34,43 @@
       "name": "selectInput",
       "tooltip": "Select Input",
       "visible": true,
-
-        "items": [
-        ]
+      "items": []
     },
     {
       "label": "Size",
       "name": "Size",
       "type": "number",
       "items": []
+    }
+  ],
+
+  "fieldsmime": [
+    {
+      "label": "Id",
+      "type": "string",
+      "name": "id",
+      "tooltip": "Id",
+      "visible": false
+    },
+    {
+      "label": "File Name",
+      "type": "string",
+      "name": "name",
+      "tooltip": "File Name",
+      "visible": true
+    },
+    {
+      "label": "File  Type ",
+      "type": "string",
+      "name": "value",
+      "tooltip": "File Type",
+      "validations": {
+        "required": {
+          "message": "Bu alan zorunludur"
+        }
+      },
+      "sort": "",
+      "filter": true
     }
   ]
 }
